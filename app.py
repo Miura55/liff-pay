@@ -86,8 +86,8 @@ def render_index():
 
 @app.route("/reserve")
 def redirect_to_pay():
-    data = {"product_name": "LINE Pay Demo product",
-            'amount':'100',
+    data = {"product_name": "オリジナルアクセサリ",
+            'amount':'1500',
             'currency':'JPY',
             'order_id':uuid.uuid4().hex,
             # optional values can be set. see https://pay.line.me/file/guidebook/technicallinking/LINE_Pay_Integration_Guide_for_Merchant-v1.1.2-JP.pdf
