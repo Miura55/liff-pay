@@ -96,7 +96,7 @@ def redirect_to_pay():
             }
     transaction_info = pay.reserve(**data)
     print(transaction_info['info']['paymentUrl']['web'])
-    return redirect(transaction_info['info']['paymentUrl']['web'])
+    return redirect(transaction_info['info']['paymentUrl']['web'] + "?p=1")
 
 @app.route("/callback")
 def callback_from_pay():
