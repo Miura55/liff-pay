@@ -21,7 +21,7 @@ class LinePay(object):
         self.channel_secret = channel_secret
         self.redirect_url = redirect_url
 
-    def reserve(self, product_name, amount, currency, order_id, **kwargs):
+    def reserve(self, product_name, amount, currency, order_id, userId, **kwargs):
         url = '{}{}{}'.format(self.DEFAULT_ENDPOINT, self.VERSION, '/payments/request')
         data = {**
                 {
@@ -40,7 +40,7 @@ class LinePay(object):
         if int(json.loads(response.text)['returnCode']) == 0:
             with shelve.open('store') as store:
                 # just for prototyping
-                store[str(json.loads(response.text)['info']['transactionId'])] = {'productName': product_name, 'amount': amount, 'currency': currency}
+                store[str(json.loads(response.text)['info']['transactionId'])] = {'productName': product_name, 'amount': amount, 'currency': currency, 'user':userId}
             return json.loads(response.text)
 
         else:
@@ -50,6 +50,7 @@ class LinePay(object):
         transaction_info = {}
         with shelve.open('store') as store:
             transaction_info = store[transaction_id]
+            print(transaction_info)
 
         if len(transaction_info) == 0:
             abort(400, 'reservation of this transaction id is not exists')
@@ -91,8 +92,10 @@ def redirect_to_pay():
             'amount':'1500',
             'currency':'JPY',
             'order_id':uuid.uuid4().hex,
+            "UserId":"sample",
             # optional values can be set. see https://pay.line.me/file/guidebook/technicallinking/LINE_Pay_Integration_Guide_for_Merchant-v1.1.2-JP.pdf
             'productImageUrl':'https://{}{}'.format(request.environ['HTTP_HOST'], '/static/item_image.jpg')
+
             }
     transaction_info = pay.reserve(**data)
     print(transaction_info['info']['paymentUrl']['web'])
