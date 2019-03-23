@@ -14,7 +14,8 @@
 <div id="liffdata">
   <h1 id="displaynamefield"></h1>
   <form id="useridfield" action="/reserve" method="post">
-    <button class="btn btn-danger btn-block" name="userid">LINE Payで支払い</button>
+    <!-- <button class="btn btn-danger btn-block" name="userid">LINE Payで支払い</button> -->
+    <a href="/reserve" onclick="initializeApp"><button id="btn" type="button" class="btn btn-primary btn-block">Pay by LINE Pay</button></a>
   </form>
 </div>
 <!-- liff SDK -->
