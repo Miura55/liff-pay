@@ -40,7 +40,7 @@ class LinePay(object):
         if int(json.loads(response.text)['returnCode']) == 0:
             with shelve.open('store') as store:
                 # just for prototyping
-                store[str(json.loads(response.text)['info']['transactionId'])] = {'productName': product_name, 'amount': amount, 'currency': currency, 'user':userId}
+                store[str(json.loads(response.text)['info']['transactionId'])] = {'productName': product_name, 'amount': amount, 'currency': currency, 'user':UserId}
             return json.loads(response.text)
 
         else:
