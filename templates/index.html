@@ -13,7 +13,9 @@
 {% block content %}
 <div id="liffdata">
   <h1 id="displaynamefield"></h1>
-  <a href="/reserve"><button id="btn" type="button" class="btn btn-primary btn-block">LINE Payで支払い</button></a>
+  <form class="/reserve" method="post">
+    <button id=useridfield type="button" name="button">LINE Payで支払い</button>
+  </form>
 </div>
 <!-- liff SDK -->
 <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
