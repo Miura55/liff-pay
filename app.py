@@ -86,13 +86,14 @@ pay = LinePay(chennel_id, channel_secret, callback_url)
 def render_index():
     return render_template('index.html')
 
-@app.route("/reserve", methods=["POST"])
-def redirect_to_pay():
+@app.route("/reserve/<user_id>", methods=["POST"])
+def redirect_to_pay(user_id):
     data = {"product_name": "オリジナルアクセサリ",
             'amount':'1500',
             'currency':'JPY',
             'order_id':uuid.uuid4().hex,
-            "UserId":request.form["userid"],
+            "UserId":user_id,
+            # "UserId":request.form["userid"],
             # optional values can be set. see https://pay.line.me/file/guidebook/technicallinking/LINE_Pay_Integration_Guide_for_Merchant-v1.1.2-JP.pdf
             'productImageUrl':'https://{}{}'.format(request.environ['HTTP_HOST'], '/static/item_image.jpg')
 

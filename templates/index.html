@@ -13,8 +13,8 @@
 {% block content %}
 <div id="liffdata">
   <h1 id="displaynamefield"></h1>
-  <form action="/reserve" method="post">
-    <button class="btn btn-primary btn-block" name="userid" value="useridfield">LINE Payで支払い</button>
+  <form action="/reserve/<id=useridfield>" method="post">
+    <button class="btn btn-danger btn-block" name="userid" value="useridfield">LINE Payで支払い</button>
   </form>
 </div>
 <!-- liff SDK -->
@@ -34,7 +34,6 @@
     // https://developers.line.me/ja/reference/liff/#liffgetprofile()
     liff.getProfile().then(function (profile) {
       document.getElementById('displaynamefield').textContent = profile.displayName + 'さんのページ';
-
     }).catch(function (error) {
       window.alert("Error getting profile: " + error);
     });
