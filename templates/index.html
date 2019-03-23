@@ -13,8 +13,8 @@
 {% block content %}
 <div id="liffdata">
   <h1 id="displaynamefield"></h1>
-  <form action="/reserve/<id=useridfield>" method="post">
-    <button class="btn btn-danger btn-block" name="userid" value="useridfield">LINE Payで支払い</button>
+  <form id="useridfield" action="/reserve" method="post">
+    <button class="btn btn-danger btn-block" name="userid">LINE Payで支払い</button>
   </form>
 </div>
 <!-- liff SDK -->
@@ -40,12 +40,10 @@
   }
 
   function initializeApp(data) {
-    document.getElementById('languagefield').textContent = data.language;
-    document.getElementById('viewtypefield').textContent = data.context.viewType;
-    document.getElementById('useridfield').textContent = data.context.userId;
-    document.getElementById('utouidfield').textContent = data.context.utouId;
-    document.getElementById('roomidfield').textContent = data.context.roomId;
-    document.getElementById('groupidfield').textContent = data.context.groupId;
+    var target = document.getElementById('useridfield')
+    target.textContent = data.context.userId;
+    target.method = "post";
+    taget.submit();
   }
 
 </script>
