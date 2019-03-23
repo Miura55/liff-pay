@@ -11,7 +11,44 @@
 {% block title %}Pay Sample{% endblock %}
 
 {% block content %}
-<div class="container">
-  <a href="/reserve"><button id="btn" type="button" class="btn btn-primary btn-block">Pay by LINE Pay</button></a>
+<div id="liffdata">
+  <nav>
+    <a href="#" id="displaynamefield"></a>
+  </nav>
+  <a href="/reserve"><button id="btn" type="button" class="btn btn-primary btn-block">LINE Payで支払い</button></a>
 </div>
+<!-- liff SDK -->
+<script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+<script>
+  window.onload = function (e) {
+    // init で初期化。基本情報を取得。
+    // https://developers.line.me/ja/reference/liff/#initialize-liff-app
+    liff.init(function (data) {
+      getProfile();
+      initializeApp(data);
+    });
+  };
+
+  // プロファイルの取得と表示
+  function getProfile(){
+    // https://developers.line.me/ja/reference/liff/#liffgetprofile()
+    liff.getProfile().then(function (profile) {
+      document.getElementById('displaynamefield').textContent = profile.displayName + 'さんのページ';
+
+    }).catch(function (error) {
+      window.alert("Error getting profile: " + error);
+    });
+  }
+
+  function initializeApp(data) {
+    document.getElementById('languagefield').textContent = data.language;
+    document.getElementById('viewtypefield').textContent = data.context.viewType;
+    document.getElementById('useridfield').textContent = data.context.userId;
+    document.getElementById('utouidfield').textContent = data.context.utouId;
+    document.getElementById('roomidfield').textContent = data.context.roomId;
+    document.getElementById('groupidfield').textContent = data.context.groupId;
+  }
+
+</script>
+
 {% endblock %}
