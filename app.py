@@ -68,8 +68,8 @@ class LinePay(object):
         return transaction_info
 
 # get it in https://pay.line.me/jp/developers/techsupport/sandbox/creation?locale=ja_JP
-chennel_id = '1587958668'
-channel_secret = '520e556b5afa9823bc4461a2a12c945c'
+chennel_id = '1557966586'
+channel_secret = '8041bcad5f15256c30408f1fbb051777'
 callback_url = '/callback'
 
 """
