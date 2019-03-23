@@ -86,7 +86,7 @@ pay = LinePay(chennel_id, channel_secret, callback_url)
 def render_index():
     return render_template('index.html')
 
-@app.route("/reserve", ["POST"])
+@app.route("/reserve", methods=["POST"])
 def redirect_to_pay():
     data = {"product_name": "オリジナルアクセサリ",
             'amount':'1500',
