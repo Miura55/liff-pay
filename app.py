@@ -91,7 +91,7 @@ def redirect_to_pay():
             'currency':'JPY',
             'order_id':uuid.uuid4().hex,
             # optional values can be set. see https://pay.line.me/file/guidebook/technicallinking/LINE_Pay_Integration_Guide_for_Merchant-v1.1.2-JP.pdf
-            'productImageUrl':'https://{}{}'.format(request.environ['HTTP_HOST'], '/static/item_image.png')
+            'productImageUrl':'https://{}{}'.format(request.environ['HTTP_HOST'], '/static/item_image.jpg')
             }
     transaction_info = pay.reserve(**data)
     print(transaction_info['info']['paymentUrl']['web'])
