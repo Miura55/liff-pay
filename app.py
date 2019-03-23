@@ -21,7 +21,7 @@ class LinePay(object):
         self.channel_secret = channel_secret
         self.redirect_url = redirect_url
 
-    def reserve(self, product_name, amount, currency, order_id, userId, **kwargs):
+    def reserve(self, product_name, amount, currency, order_id, UserId, **kwargs):
         url = '{}{}{}'.format(self.DEFAULT_ENDPOINT, self.VERSION, '/payments/request')
         data = {**
                 {
