@@ -15,6 +15,7 @@ class LinePay(object):
     DEFAULT_ENDPOINT = 'https://sandbox-api-pay.line.me/'
     VERSION = 'v2'
 
+
     def __init__(self, channel_id, channel_secret, redirect_url):
         self.channel_id = channel_id
         self.channel_secret = channel_secret
