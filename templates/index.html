@@ -32,7 +32,7 @@
     alert(window.location.hostname)
     $.ajax({
           type: 'POST',
-          url: 'reserve/'+userId,
+          url: "https://" + window.location.hostname + 'reserve/'+userId,
 
           success: function (res, status) {
             // do something
