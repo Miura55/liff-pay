@@ -33,10 +33,10 @@
   };
   function reserve_userid(){
     //alert(window.location.hostname)
-    //alert("https://" + window.location.hostname + '/reserve/'+userId)
+    alert("https://" + window.location.hostname + '/reserve/'+userId+"/"+{{data}})
     $.ajax({
           type: 'POST',
-          url: "https://" + window.location.hostname + '/reserve/'+userId,
+          url: "https://" + window.location.hostname + '/reserve/'+userId+"/"+{{data}},
 
           success: function (res, status) {
             location.href = res

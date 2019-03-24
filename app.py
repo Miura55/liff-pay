@@ -98,10 +98,10 @@ def render_index():
     item_id = request.args.get("itemName")
     return render_template('index.html', data=item_id)
 
-@app.route("/reserve/<UserId>", methods=["POST"])
-def redirect_to_pay(UserId=None):
+@app.route("/reserve/<UserId>/<itemName>", methods=["POST"])
+def redirect_to_pay(UserId=None, itemName=None):
     print("got: ", request.form)
-    data = {"product_name": "オリジナルアクセサリ",
+    data = {"product_name": itemName,
             'amount':'1500',
             'currency':'JPY',
             'order_id':uuid.uuid4().hex,
