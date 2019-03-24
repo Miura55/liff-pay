@@ -29,9 +29,10 @@
     });
   };
   function reserve_userid(){
+    alert(window.location.hostname)
     $.ajax({
           type: 'POST',
-          url: request.url_root.replace("http://", "https://") + '/reserve/'+userId,
+          url: 'reserve/'+userId,
 
           success: function (res, status) {
             // do something
