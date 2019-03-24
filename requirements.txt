@@ -3,3 +3,5 @@ flask_bootstrap
 requests
 uuid
 gunicorn
+flask-cors
+line-bot-sdk

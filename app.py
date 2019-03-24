@@ -2,9 +2,20 @@ import os
 from flask import Flask, request, abort, render_template, redirect
 import requests
 from flask_bootstrap import Bootstrap
-
+from flask_cors import CORS
+from linebot import (
+    LineBotApi
+)
+from linebot.models import (
+    TextSendMessage,
+    FlexSendMessage,
+    BubbleContainer,
+    StickerSendMessage
+)
+line_bot_api = LineBotApi('kF60SPieYOqUrOxN6bmTCep2/sb+KtZjeEOLEBt27bwvunWazgXJlGIvnLAw7TNqnt4UAZC1She6HME4WO6Eh+yjuMWyyZNkYTKq0RzJQED0tccBgnB8GXn04yUP5dl5jN4ZSur67zm6EdlwG/1DaVGUYhWQfeY8sLGRXgo3xvw=')
 app = Flask(__name__, static_folder='static')
 bootstrap = Bootstrap(app)
+CORS(app)
 
 import json
 import shelve
@@ -100,12 +111,33 @@ def redirect_to_pay(UserId=None):
             }
     transaction_info = pay.reserve(**data)
     print(transaction_info['info']['paymentUrl']['web'])
-    return redirect(transaction_info['info']['paymentUrl']['web'])
+    # return redirect(transaction_info['info']['paymentUrl']['web'])
+    return transaction_info['info']['paymentUrl']['web']
 
 @app.route("/callback")
 def callback_from_pay():
     transaction_info = pay.confirm(request.args.get('transactionId'))
     print("trasaction: ",transaction_info)
+    # push message to trasaction_info['user']
+    userId = transaction_info['user']
+    with open("recipt.json", "r", encoding="utf-8") as f:
+        json_data = json.load(f)
+        # receipt = json.dumps(json_data)
+        print(json_data)
+
+        line_bot_api.push_message(
+            userId,
+                [
+                    FlexSendMessage(
+                        alt_text="レシート",
+                        contents=BubbleContainer.new_from_json_dict(json_data)
+                    ),
+                    StickerSendMessage(
+                        package_id=2,
+                        sticker_id=41 
+                    )
+                ]
+            )
     return render_template('purchased.html', **transaction_info)
 
 app.errorhandler(400)

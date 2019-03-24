@@ -1,0 +1,221 @@
+{
+  "type":"bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "領収書",
+        "weight": "bold",
+        "wrap": false,
+        "color": "#1DB446",
+        "flex": 1,
+        "size": "sm",
+        "margin": "none",
+        "align": "start",
+        "gravity": "top"
+      },
+      {
+        "type": "text",
+        "text": "Tokimeter",
+        "weight": "bold",
+        "wrap": false,
+        "color": "#464646",
+        "flex": 1,
+        "size": "xxl",
+        "margin": "md",
+        "align": "start",
+        "gravity": "top"
+      },
+      {
+        "type": "text",
+        "text": "愛知県名古屋市中村区平池町４丁目6-11",
+        "weight": "regular",
+        "wrap": true,
+        "color": "#aaaaaa",
+        "flex": 1,
+        "size": "xs",
+        "margin": "none",
+        "align": "start",
+        "gravity": "top"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl",
+        "color": "#000000"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "アクセサリ",
+                "weight": "regular",
+                "wrap": false,
+                "color": "#555555",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "1500 JPY",
+                "weight": "regular",
+                "wrap": false,
+                "color": "#111111",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "点数",
+                "weight": "regular",
+                "wrap": false,
+                "color": "#555555",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "1",
+                "weight": "regular",
+                "wrap": false,
+                "color": "#111111",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "xxl"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "TOTAL",
+                "weight": "regular",
+                "wrap": false,
+                "color": "#555555",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "1500 JPY",
+                "weight": "regular",
+                "wrap": false,
+                "color": "#111111",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          }
+        ],
+        "flex": 1,
+        "spacing": "sm",
+        "margin": "xxl"
+      },
+      {
+        "type": "separator",
+        "margin": "xxl",
+        "color": "#000000"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "PAYMENT ID",
+            "weight": "regular",
+            "wrap": false,
+            "color": "#aaaaaa",
+            "flex": 0,
+            "size": "xs",
+            "margin": "none",
+            "align": "start",
+            "gravity": "top"
+          },
+          {
+            "type": "text",
+            "text": "#743289384279",
+            "weight": "regular",
+            "wrap": false,
+            "color": "#aaaaaa",
+            "flex": 1,
+            "size": "xs",
+            "margin": "none",
+            "align": "end",
+            "gravity": "top"
+          }
+        ],
+        "flex": 1,
+        "spacing": "none",
+        "margin": "md"
+      }
+    ],
+    "flex": 1,
+    "spacing": "none",
+    "margin": "md"
+  },
+  "styles": {
+    "header": {
+      "backgroundColor": "#FFFFFF",
+      "separator": false,
+      "separatorColor": "#FFFFFF"
+    },
+    "hero": {
+      "backgroundColor": "#FFFFFF",
+      "separator": false,
+      "separatorColor": "#FFFFFF"
+    },
+    "body": {
+      "backgroundColor": "#FFFFFF",
+      "separator": false,
+      "separatorColor": "#FFFFFF"
+    },
+    "footer": {
+      "backgroundColor": "#FFFFFF",
+      "separator": true,
+      "separatorColor": "#FFFFFF"
+    }
+  }
+}
