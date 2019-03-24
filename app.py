@@ -108,7 +108,6 @@ def redirect_to_pay(UserId=None, itemName=None):
             "UserId":UserId,
             # optional values can be set. see https://pay.line.me/file/guidebook/technicallinking/LINE_Pay_Integration_Guide_for_Merchant-v1.1.2-JP.pdf
             'productImageUrl':'https://{}{}'.format(request.environ['HTTP_HOST'], '/static/item_image.jpg')
-
             }
     transaction_info = pay.reserve(**data)
     print(transaction_info['info']['paymentUrl']['web'])
@@ -121,6 +120,15 @@ def callback_from_pay():
     print("trasaction: ",transaction_info)
     # push message to trasaction_info['user']
     userId = transaction_info['user']
+    profile = line_bot_api.get_profile(userId)
+
+    import upKintone
+    URL        = "https://devksmpdi.cybozu.com:443"											# URL
+    APP_ID     = "3"																			# kintoneのアプリID
+    API_TOKEN  = "Kk5glri8sVOnkGVe2J0b5dgT5abzxpmOQWMKQvWX"
+    price = "1500"
+    resp = upKintone.PostToKintone(URL, APP_ID, API_TOKEN, userId, price, profile)
+    print(resp.text)
 
     with open("recipt.json", "r", encoding="utf-8") as f:
         json_data = json.load(f)
