@@ -13,20 +13,34 @@
 {% block content %}
 <div id="liffdata">
   <h1 id="displaynamefield"></h1>
-  <form action="/reserve" method="post">
-    <button class="btn btn-danger btn-block" name="userid" value="{$useridfield}">LINE Payで支払い</button>
-  </form>
-</div>
+    <button onclick="reserve_userid()" class="btn btn-danger btn-block" name="userid" value={$useridfield}>LINE Payで支払い</button>
+  </div>
 <!-- liff SDK -->
 <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
 <script>
+  var userId = " ";
   window.onload = function (e) {
     // init で初期化。基本情報を取得。
     // https://developers.line.me/ja/reference/liff/#initialize-liff-app
     liff.init(function (data) {
+      userId = data.context.userId
       getProfile();
       initializeApp(data);
     });
+  };
+  function reserve_userid(){
+    $.ajax({
+          type: 'POST',
+          url: request.url_root.replace("http://", "https://") + '/reserve/'+userId,
+
+          success: function (res, status) {
+            // do something
+            alert("success")
+          },
+          error: function (res) {
+              alert(res.status);
+          }
+      })
   };
 
   // プロファイルの取得と表示
