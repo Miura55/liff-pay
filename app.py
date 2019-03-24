@@ -98,9 +98,9 @@ def render_index():
     item_id = request.args.get("itemName")
     return render_template('index.html', data=item_id)
 
-@app.route('/app')
-def app():
-    return redirect('tokimater:')
+@app.route("/app")
+def render_index_app():
+    return redirect('tokimeter:')
 
 @app.route("/reserve/<UserId>/<itemName>", methods=["POST"])
 def redirect_to_pay(UserId=None, itemName=None):
