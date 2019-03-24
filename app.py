@@ -124,7 +124,7 @@ def callback_from_pay():
     print("trasaction: ",transaction_info)
     # push message to trasaction_info['user']
     userId = transaction_info['user']
-    profile = line_bot_api.get_profile(userId)
+    profile = line_bot_api.get_profile(userId).display_name
 
     import upKintone
     URL        = "https://devksmpdi.cybozu.com:443"											# URL
