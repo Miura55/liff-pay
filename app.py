@@ -95,7 +95,8 @@ pay = LinePay(chennel_id, channel_secret, callback_url)
 
 @app.route("/")
 def render_index():
-    return render_template('index.html')
+    item_id = request.args.get("itemName")
+    return render_template('index.html', data=item_id)
 
 @app.route("/reserve/<UserId>", methods=["POST"])
 def redirect_to_pay(UserId=None):
@@ -120,11 +121,9 @@ def callback_from_pay():
     print("trasaction: ",transaction_info)
     # push message to trasaction_info['user']
     userId = transaction_info['user']
+
     with open("recipt.json", "r", encoding="utf-8") as f:
         json_data = json.load(f)
-        # receipt = json.dumps(json_data)
-        print(json_data)
-
         line_bot_api.push_message(
             userId,
                 [
@@ -134,7 +133,7 @@ def callback_from_pay():
                     ),
                     StickerSendMessage(
                         package_id=2,
-                        sticker_id=41 
+                        sticker_id=41
                     )
                 ]
             )
