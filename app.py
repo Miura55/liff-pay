@@ -131,7 +131,8 @@ def callback_from_pay():
     APP_ID     = "3"																			# kintoneのアプリID
     API_TOKEN  = "Kk5glri8sVOnkGVe2J0b5dgT5abzxpmOQWMKQvWX"
     price = "1500"
-    resp = upKintone.PostToKintone(URL, APP_ID, API_TOKEN, userId, price, profile)
+    syohin = "アクセサリ"
+    resp = upKintone.PostToKintone(URL, APP_ID, API_TOKEN, userId, price, syohin, profile)
     print(resp.text)
 
     with open("recipt.json", "r", encoding="utf-8") as f:
