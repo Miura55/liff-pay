@@ -106,6 +106,7 @@ def render_index_app():
 @app.route("/reserve/<UserId>/<itemName>", methods=["POST"])
 def redirect_to_pay(UserId=None, itemName=None):
     print("got: ", request.form)
+    print("UserId:", UserId)
     data = {"product_name": itemName,
             'amount':'1500',
             'currency':'JPY',
