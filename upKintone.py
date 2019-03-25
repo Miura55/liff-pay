@@ -10,5 +10,5 @@ def PostToKintone(appId, userID, price, syohin, account):
 	record={'user_id':{'value' : userID}, 'price':{'value' : price},'syohin':{'value':syohin}, 'account':{"value":account}}
 	data = {'app':appId,'record':record}
 	headers = {"X-Cybozu-API-Token": API_TOKEN, "Content-Type" : "application/json"}
-	resp=requests.post(url+'/k/v1/record.json',json=data,headers=headers)
+	resp=requests.post(URL+'/k/v1/record.json',json=data,headers=headers)
 	return resp
