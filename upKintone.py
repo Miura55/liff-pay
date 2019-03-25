@@ -4,9 +4,10 @@
 import requests
 import os
 
-def PostToKintone(appId, userID, price, syohin, account):
+def PostToKintone(userID, price, syohin, account):
 	URL        = os.environ["KINTONE_APP_URL"]											# URL
 	API_TOKEN  = os.environ["KINTONE_API_TOKEN"]
+	appId = "3"
 	record={'user_id':{'value' : userID}, 'price':{'value' : price},'syohin':{'value':syohin}, 'account':{"value":account}}
 	data = {'app':appId,'record':record}
 	headers = {"X-Cybozu-API-Token": API_TOKEN, "Content-Type" : "application/json"}
