@@ -83,7 +83,7 @@ class LinePay(object):
 
 # get it in https://pay.line.me/jp/developers/techsupport/sandbox/creation?locale=ja_JP
 chennel_id = '1557966586'
-channel_secret = os.environ["PAY_CHANNEL_SECRET"]
+channel_secret = os.environ["PAY_CHANNEL_SECLET"]
 callback_url = '/callback'
 
 """
