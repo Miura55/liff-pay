@@ -128,11 +128,10 @@ def callback_from_pay():
 
     # Up to kintone
     import upKintone
-    URL        = os.environ["KINTONE_APP_URL"]											# URL
     APP_ID     = "3"																			# kintoneのアプリID
     price = "1500"
     syohin = transaction_info["productName"]
-    resp = upKintone.PostToKintone(URL, APP_ID, userId, price, syohin, profile)
+    resp = upKintone.PostToKintone(APP_ID, userId, price, syohin, profile)
     print(resp.text)
 
     with open("recipt.json", "r", encoding="utf-8") as f:
