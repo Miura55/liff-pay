@@ -128,7 +128,7 @@ def callback_from_pay():
 
     # Up to kintone
     import upKintone
-    URL        = "https://devksmpdi.cybozu.com:443"											# URL
+    URL        = os.environ["KINTONE_API_URL"]											# URL
     APP_ID     = "3"																			# kintoneのアプリID
     price = "1500"
     syohin = transaction_info["productName"]
