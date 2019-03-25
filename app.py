@@ -12,7 +12,8 @@ from linebot.models import (
     BubbleContainer,
     StickerSendMessage
 )
-line_bot_api = LineBotApi('kF60SPieYOqUrOxN6bmTCep2/sb+KtZjeEOLEBt27bwvunWazgXJlGIvnLAw7TNqnt4UAZC1She6HME4WO6Eh+yjuMWyyZNkYTKq0RzJQED0tccBgnB8GXn04yUP5dl5jN4ZSur67zm6EdlwG/1DaVGUYhWQfeY8sLGRXgo3xvw=')
+access_token = os.environ["LINE_ACCESS_TOKEN"]
+line_bot_api = LineBotApi(access_token)
 app = Flask(__name__, static_folder='static')
 bootstrap = Bootstrap(app)
 CORS(app)
@@ -82,7 +83,7 @@ class LinePay(object):
 
 # get it in https://pay.line.me/jp/developers/techsupport/sandbox/creation?locale=ja_JP
 chennel_id = '1557966586'
-channel_secret = '8041bcad5f15256c30408f1fbb051777'
+channel_secret = '8041bcad5f15256c30408f1fbb05177'
 callback_url = '/callback'
 
 """
