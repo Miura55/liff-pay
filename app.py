@@ -127,13 +127,13 @@ def callback_from_pay():
     userId = transaction_info['user']
     profile = line_bot_api.get_profile(userId).display_name
 
+    # Up to kintone
     import upKintone
     URL        = "https://devksmpdi.cybozu.com:443"											# URL
     APP_ID     = "3"																			# kintoneのアプリID
-    API_TOKEN  = "Kk5glri8sVOnkGVe2J0b5dgT5abzxpmOQWMKQvWX"
     price = "1500"
-    syohin = "アクセサリ"
-    resp = upKintone.PostToKintone(URL, APP_ID, API_TOKEN, userId, price, syohin, profile)
+    syohin = transaction_info["productName"]
+    resp = upKintone.PostToKintone(URL, APP_ID, userId, price, syohin, profile)
     print(resp.text)
 
     with open("recipt.json", "r", encoding="utf-8") as f:
