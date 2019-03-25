@@ -83,7 +83,7 @@ class LinePay(object):
 
 # get it in https://pay.line.me/jp/developers/techsupport/sandbox/creation?locale=ja_JP
 chennel_id = '1557966586'
-channel_secret = '8041bcad5f15256c30408f1fbb05177'
+channel_secret = '8041bcad5f15256c30408f1fbb051777'
 callback_url = '/callback'
 
 """
@@ -116,6 +116,7 @@ def redirect_to_pay(UserId=None, itemName=None):
             }
     transaction_info = pay.reserve(**data)
     print(transaction_info['info']['paymentUrl']['web'])
+    # return redirect(transaction_info['info']['paymentUrl']['web'])
     return transaction_info['info']['paymentUrl']['web']
 
 @app.route("/callback")
